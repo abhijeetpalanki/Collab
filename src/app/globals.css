@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  background-color: #f6f7fb;
+}
+
+button[type="button"],
+button[type="submit"] {
+  @apply bg-gray-400 text-gray-900 py-2 px-4 border border-gray-200 rounded-md;
+}
+
+button[type="submit"] {
+  @apply bg-blue-500 border-blue-500 text-white;
+}
+
+input[type="text"] {
+  @apply w-full block rounded-md;
+}

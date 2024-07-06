@@ -19,7 +19,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <header className="bg-gray-200 p-4">
+          <a href="" className="logo">
+            Collab
+          </a>
+        </header>
+        <main className="p-8">{children}</main>
+      </body>
     </html>
   );
 }
