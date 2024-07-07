@@ -7,11 +7,13 @@ body {
 }
 
 button[type="button"],
-button[type="submit"] {
-  @apply bg-gray-400 text-gray-900 py-2 px-4 border border-gray-200 rounded-md;
+button[type="submit"],
+button.primary {
+  @apply bg-gray-200 text-gray-900 py-2 px-4 border border-gray-200 rounded-md;
 }
 
-button[type="submit"] {
+button[type="submit"],
+button.primary {
   @apply bg-blue-500 border-blue-500 text-white;
 }
 
