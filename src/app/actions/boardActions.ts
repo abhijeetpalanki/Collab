@@ -34,6 +34,11 @@ export async function addEmailToBoard(boardId: string, email: string) {
   return true;
 }
 
+export async function updateBoard(boardId: string, updateData: any) {
+  await liveblocksClient.updateRoom(boardId, updateData);
+  return true;
+}
+
 export async function removeEmailFromBoard(boardId: string, email: string) {
   const room = await liveblocksClient.getRoom(boardId);
   const usersAccesses: any = room.usersAccesses;
