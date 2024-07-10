@@ -23,8 +23,7 @@ export default async function BoardPage({ params: { boardId } }: PageProps) {
 
   return (
     <div>
-      Board: {boardInfo.metadata.boardName}
-      <Board id={boardId} />
+      <Board name={boardInfo.metadata.boardName.toString()} id={boardId} />
     </div>
   );
 }
