@@ -1,4 +1,5 @@
-import { createClient, LiveList, LiveObject } from "@liveblocks/client";
+import { createClient } from "@liveblocks/client";
+import { LiveList, LiveObject } from "@liveblocks/core";
 import { createRoomContext } from "@liveblocks/react";
 
 const client = createClient({
@@ -6,7 +7,10 @@ const client = createClient({
   throttle: 100,
 });
 
-type Presence = {};
+export type Presence = {
+  boardId?: null | string;
+  cardId?: null | string;
+};
 
 export type Column = {
   name: string;
@@ -25,12 +29,34 @@ type Storage = {
   columns: LiveList<LiveObject<Column>>;
   cards: LiveList<LiveObject<Card>>;
 };
-type UserMeta = {};
+
+type UserMeta = {
+  id: string;
+  info: {
+    name: string;
+    email: string;
+    image: string;
+  };
+};
+
 type RoomEvent = {};
-type ThreadMetadata = {};
+
+type ThreadMetadata = {
+  cardId: string;
+};
 
 export const {
-  suspense: { RoomProvider, useMyPresence, useStorage, useMutation, useRoom },
+  suspense: {
+    RoomProvider,
+    useMyPresence,
+    useUpdateMyPresence,
+    useStorage,
+    useMutation,
+    useRoom,
+    useSelf,
+    useOthers,
+    useThreads,
+  },
 } = createRoomContext<Presence, Storage, UserMeta, RoomEvent, ThreadMetadata>(
   client
 );

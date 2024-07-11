@@ -10,6 +10,8 @@ import {
   faEllipsis,
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
+import ColumnCard from "./ColumnCard";
+import CancelButton from "./CancelButton";
 
 type ColumnProps = {
   id: string;
@@ -18,7 +20,6 @@ type ColumnProps = {
 
 export default function Column({ id, name }: ColumnProps) {
   const [renameMode, setRenameMode] = useState(false);
-  const router = useRouter();
 
   async function handleName(ev: FormEvent) {
     ev.preventDefault();
@@ -103,13 +104,7 @@ export default function Column({ id, name }: ColumnProps) {
             <FontAwesomeIcon icon={faTrash} />
             Delete Column
           </button>
-          <button
-            className="btn flex justify-center gap-2 w-full mt-2 items-center"
-            onClick={() => setRenameMode(false)}
-          >
-            <FontAwesomeIcon icon={faCancel} />
-            Cancel Edit
-          </button>
+          <CancelButton onClick={() => setRenameMode(false)} />
         </div>
       )}
       {!renameMode && columnCards && (
@@ -121,9 +116,7 @@ export default function Column({ id, name }: ColumnProps) {
           ghostClass="opacity-40"
         >
           {columnCards.map((card) => (
-            <div className="border bg-white my-2 p-4 rounded-md" key={card.id}>
-              <span>{card.name}</span>
-            </div>
+            <ColumnCard key={card.id} id={card.id} name={card.name} />
           ))}
         </ReactSortable>
       )}
