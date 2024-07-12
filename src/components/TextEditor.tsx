@@ -8,6 +8,7 @@ import { Collaboration } from "@tiptap/extension-collaboration";
 import { CollaborationCursor } from "@tiptap/extension-collaboration-cursor";
 import { Underline } from "@tiptap/extension-underline";
 import { useSelf } from "@/app/liveblocks.config";
+// @ts-ignore
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBold,

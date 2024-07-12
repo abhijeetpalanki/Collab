@@ -26,8 +26,6 @@ export default function CardDescription() {
     setDoc(yDoc);
     setProvider(yProvider);
 
-    console.log({ doc, provider });
-
     return () => {
       yDoc.destroy();
       yProvider.destroy();
