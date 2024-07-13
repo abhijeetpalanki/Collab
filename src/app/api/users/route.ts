@@ -34,6 +34,7 @@ export async function GET(req: NextRequest) {
       id: u.email,
       name: u.name,
       image: u.image,
+      avatar: u.image,
     }))
   );
 }
